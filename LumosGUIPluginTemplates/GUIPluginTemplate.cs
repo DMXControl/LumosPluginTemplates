@@ -1,52 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LumosLIB.GUI.Windows;
-using Lumos.GUI.BaseWindow;
+﻿using Lumos.GUI.Plugin;
 using LumosLIB.Kernel.Log;
 
 namespace LumosGUIPluginTemplates
 {
-    public class GUIPluginTemplate : IPluginWindow
+    public class GUIPluginTemplate : GuiPluginBase
     {
-        private static readonly ILumosLog Log = LumosLogger.getInstance(typeof(GUIPluginTemplate));
+        private static readonly ILumosLog Log = LumosLogger.getInstance(nameof(GUIPluginTemplate));
 
-        public GUIPluginTemplate() : base()
+        public GUIPluginTemplate() : base("<ENTER-UNIQUE-GUI-PLUGIN-GUID>", "<ENTER-GUI-PLUGIN-NAME>")
         {
+
         }
 
-        public MenuType MainFormMenu
+        protected override void initializePlugin()
         {
-            get
-            {
-                return MenuType.Windows;
-            }
+            Log.Info("Initialize " + nameof(GUIPluginTemplate));
         }
 
-        string IPluginWindow.PluginID
+        protected override void startupPlugin()
         {
-            get { return "{6211303D-14D3-44BB-BC06-3ED46F954F55}"; }
+            Log.Info("Startup " + nameof(GUIPluginTemplate));
         }
 
-        string IPluginWindow.WindowID
+
+        protected override void shutdownPlugin()
         {
-            get { return ((IPluginWindow)this).PluginID; }
+            Log.Info("Shutdown " + nameof(GUIPluginTemplate));
         }
 
-        public void initialize(IPluginWindowContext context)
+        public override void connectionEstablished()
         {
-            Log.Info("initialize");
+            base.connectionEstablished();
+            Log.Info("ConnectionEstablished " + nameof(GUIPluginTemplate));
         }
-
-        public void pluginDisabled()
+        public override void connectionClosing()
         {
-            Log.Info("disable");
-        }
-
-        public void pluginEnabled()
-        {
-            Log.Info("enable");
+            base.connectionClosing();
+            Log.Info("ConnectionClosing " + nameof(GUIPluginTemplate));
         }
     }
 }

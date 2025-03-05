@@ -1,51 +1,52 @@
 ﻿using LumosLIB.Kernel.Log;
-using LumosLIB.Tools;
 using org.dmxc.lumos.Kernel.PropertyType;
 using org.dmxc.lumos.Kernel.PropertyValue.Attachable;
-using org.dmxc.lumos.Kernel.PropertyValue.Filter; //Wichtig!
+using org.dmxc.lumos.Kernel.PropertyValue.Filter; //Important!
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace LumosPluginTemplates
 {
-    public class MxMatrixEffectTemplate : AbstractMxEffect //Wichtig!
+    public class MxMatrixEffectTemplate : AbstractMxEffect
     {
-        private static readonly ILumosLog log = LumosLogger.getInstance(typeof(MxMatrixEffectTemplate)); //Wichtig!
+        private static readonly ILumosLog log = LumosLogger.getInstance(typeof(MxMatrixEffectTemplate)); //Important
         private string attachable;
         protected MxMatrixEffectTemplate(object Speed)
-            : base()
+            : base(Speed)
         {
         }
         public MxMatrixEffectTemplate()
             : this(1)
         {
         }
-        public override string Name //Ein Muss!
+        public override string Name //Required!
         {
             get { return "MatrixEffectTemplate"; }
         }
-        protected override AbstractFilter cloneAbstractFilter() //Ein Muss!
+
+        protected override AbstractMxEffect cloneAbstractMxEffect()
         {
             return new MxMatrixEffectTemplate(this.Speed);
         }
-        protected override ILumosLog Log //Ein Muss!
+
+        protected override ILumosLog Log //Required!
         {
             get { return log; }
         }
-        protected override bool processMatrix(Matrix input, out Matrix output, long time) //Ein Muss! Hier entsteht dein Bild!!!
+        protected override bool processMatrix(Matrix input, out Matrix output, long time) //Required! Here, the matrix is rendered!!!
         {
             output = Matrix.FromBounds(10, 10);
             return true;
         }
-        protected override IEnumerable<AttachableParameter> ParametersInternal //Hier definierst du Parameter
+        protected override IEnumerable<AttachableParameter> ParametersInternal //Here, parameters are defined
         {
             get
             {
                 try
                 {
-                    AttachableParameter[] items = new AttachableParameter[1];
-                    items[0] = new org.dmxc.lumos.Kernel.PropertyValue.Attachable.AttachableParameter("MyAttachable", null, typeof(string), new string[] { "one", "two" });
+                    var items = new AttachableParameter("MyAttachable", null, typeof(string), new string[] { "one", "two" });
                     return base.ParametersInternal.Append<AttachableParameter>(items);
                 }
                 catch (Exception e)
@@ -55,7 +56,7 @@ namespace LumosPluginTemplates
                 return base.ParametersInternal;
             }
         }
-        protected override bool setParameterInternal(string name, object value) //Hier werden Parameteränderungen ausgewertet
+        protected override bool setParameterInternal(string name, object value) //Here, parameter changes are evaluated
         {
             try
             {
@@ -73,7 +74,7 @@ namespace LumosPluginTemplates
             }
             return base.setParameterInternal(name, value);
         }
-        protected override object getParameterInternal(string name) //hier werden Parameter aus deinem Effect gelesen
+        protected override object getParameterInternal(string name) //Here, parameter values are read out from the effect
         {
             try
             {

@@ -7,7 +7,7 @@ namespace LumosPluginTemplates
 {
     public class FrequentEffectTemplate : AbstractFrequentFunctionEffect
     {
-        private static readonly ILumosLog log = LumosLogger.getInstance(typeof(FrequentEffectTemplate));
+        private static readonly ILumosLog log = LumosLogger.getInstance(nameof(FrequentEffectTemplate));
 
         protected FrequentEffectTemplate(object amplitude, object frequency, object phase)
             : base(amplitude, frequency, phase)

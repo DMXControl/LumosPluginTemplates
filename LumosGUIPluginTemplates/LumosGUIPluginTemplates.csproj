@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LumosGUIPluginTemplates</RootNamespace>
     <AssemblyName>LumosGUIPluginTemplates</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -17,11 +17,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\\Program Files %28x86%29\DMXControl3\GUI\Plugins\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\DMXControl3\GUI\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,15 +31,20 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LumosControls">
+      <HintPath>C:\Program Files (x86)\DMXControl3\GUI\LumosControls.dll</HintPath>
+    </Reference>
     <Reference Include="LumosGUI">
-      <HintPath>C:\\Program Files (x86)\DMXControl3\GUI\LumosGUI.exe</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\DMXControl3\GUI\LumosGUI.exe</HintPath>
     </Reference>
     <Reference Include="LumosLIB">
-      <HintPath>C:\\Program Files (x86)\DMXControl3\GUI\LumosLIB.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\DMXControl3\GUI\LumosLIB.dll</HintPath>
+    </Reference>
+    <Reference Include="LumosToolsLIB">
+      <HintPath>C:\Program Files (x86)\DMXControl3\GUI\LumosToolsLIB.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
