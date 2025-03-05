@@ -1,33 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <OutputType>Library</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyTitle>LumosPluginTemplates</AssemblyTitle>
-    <Product>LumosPluginTemplates</Product>
-    <Copyright>Copyright ©  2016</Copyright>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <BaseOutputPath>C:\Program Files (x86)\DMXControl3\Kernel\Plugins</BaseOutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>C:\Program Files (x86)\DMXControl3\Kernel\Plugins\</OutputPath>
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Lumos">
-      <HintPath>C:\Program Files (x86)\DMXControl3\Kernel\Lumos.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="LumosLIB">
-      <HintPath>C:\Program Files (x86)\DMXControl3\Kernel\LumosLIB.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="LumosProtobuf">
-      <HintPath>C:\Program Files (x86)\DMXControl3\Kernel\LumosProtobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="LumosToolsLIB">
-      <HintPath>C:\Program Files (x86)\DMXControl3\Kernel\LumosToolsLIB.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<AssemblyTitle>LumosPluginTemplates</AssemblyTitle>
+		<Product>LumosPluginTemplates</Product>
+		<Copyright>Copyright © 2025</Copyright>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="Lumos">
+			<HintPath>E:\DMXControl 3\Kernel\Lumos.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="LumosLIB">
+			<HintPath>E:\DMXControl 3\Kernel\LumosLIB.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="LumosProtobuf">
+			<HintPath>E:\DMXControl 3\Kernel\LumosProtobuf.dll</HintPath>
+		</Reference>
+		<Reference Include="LumosToolsLIB">
+			<HintPath>E:\DMXControl 3\Kernel\LumosToolsLIB.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 </Project>

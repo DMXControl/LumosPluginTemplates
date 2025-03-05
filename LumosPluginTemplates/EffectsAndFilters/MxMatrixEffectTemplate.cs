@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LumosPluginTemplates
+namespace LumosPluginTemplates.EffectsAndFilters
 {
     public class MxMatrixEffectTemplate : AbstractMxEffect
     {
@@ -16,10 +16,12 @@ namespace LumosPluginTemplates
         protected MxMatrixEffectTemplate(object Speed)
             : base(Speed)
         {
+
         }
         public MxMatrixEffectTemplate()
             : this(1)
         {
+
         }
         public override string Name //Required!
         {
@@ -28,7 +30,7 @@ namespace LumosPluginTemplates
 
         protected override AbstractMxEffect cloneAbstractMxEffect()
         {
-            return new MxMatrixEffectTemplate(this.Speed);
+            return new MxMatrixEffectTemplate(Speed);
         }
 
         protected override ILumosLog Log //Required!
@@ -47,7 +49,7 @@ namespace LumosPluginTemplates
                 try
                 {
                     var items = new AttachableParameter("MyAttachable", null, typeof(string), new string[] { "one", "two" });
-                    return base.ParametersInternal.Append<AttachableParameter>(items);
+                    return base.ParametersInternal.Append(items);
                 }
                 catch (Exception e)
                 {
@@ -60,9 +62,9 @@ namespace LumosPluginTemplates
         {
             try
             {
-                if (name.Equals("MyAttachable") && (value is String))
+                if (name.Equals("MyAttachable") && value is string)
                 {
-                    this.attachable = (string)value;
+                    attachable = (string)value;
                     return true;
                 }
             }
@@ -80,7 +82,7 @@ namespace LumosPluginTemplates
             {
                 if (name.Equals("MyAttachable"))
                 {
-                    return this.attachable;
+                    return attachable;
                 }
             }
             catch (Exception e)
@@ -91,7 +93,7 @@ namespace LumosPluginTemplates
         }
         private string ExeptionString(string Caption, params object[] ojb)
         {
-            StringBuilder sb = new StringBuilder("Effect: " + this.Name);
+            StringBuilder sb = new StringBuilder("Effect: " + Name);
             sb.AppendLine(Caption);
             for (int i = 0; i < ojb.Length; i++)
             {

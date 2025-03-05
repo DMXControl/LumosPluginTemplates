@@ -1,6 +1,6 @@
 ﻿using org.dmxc.lumos.Kernel.Scene.Fade.Curve;
 
-namespace LumosPluginTemplates
+namespace LumosPluginTemplates.DimmerCurve
 {
     public class DimCurveTemplate : IFadeCurve
     {
