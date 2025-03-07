@@ -4,6 +4,7 @@ using LumosPluginTemplates.MainSwitch;
 using org.dmxc.lumos.Kernel.Input.v2;
 using org.dmxc.lumos.Kernel.MainSwitch;
 using org.dmxc.lumos.Kernel.Plugin;
+using org.dmxc.lumos.Kernel.Resource;
 using System;
 
 namespace LumosPluginTemplates
@@ -40,10 +41,27 @@ namespace LumosPluginTemplates
             }
         }
 
-
         protected override void shutdownPlugin()
         {
             Log.Info("Shutdown " + nameof(KernelPluginTemplate));
+        }
+
+        public override void loadProject(LumosIOContext context)
+        {
+            base.loadProject(context);
+            Log.Info("LoadProject " + nameof(KernelPluginTemplate));
+        }
+
+        public override void saveProject(LumosIOContext context)
+        {
+            base.saveProject(context);
+            Log.Info("SaveProject " + nameof(KernelPluginTemplate));
+        }
+
+        public override void closeProject(LumosIOContext context)
+        {
+            base.closeProject(context);
+            Log.Info("CloseProject " + nameof(KernelPluginTemplate));
         }
     }
 }

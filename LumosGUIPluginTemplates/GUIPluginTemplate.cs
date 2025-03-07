@@ -1,4 +1,5 @@
 ﻿using Lumos.GUI.Plugin;
+using Lumos.GUI.Run;
 using Lumos.GUI.Windows;
 using LumosGUIPluginTemplates.ProjectExplorer;
 using LumosLIB.Kernel.Log;
@@ -44,6 +45,24 @@ namespace LumosGUIPluginTemplates
         {
             base.connectionClosing();
             Log.Info("ConnectionClosing " + nameof(GUIPluginTemplate));
+        }
+
+        public override void loadProject(LumosGUIIOContext context)
+        {
+            base.loadProject(context);
+            Log.Info("LoadProject " + nameof(GUIPluginTemplate));
+        }
+
+        public override void saveProject(LumosGUIIOContext context)
+        {
+            base.saveProject(context);
+            Log.Info("SaveProject " + nameof(GUIPluginTemplate));
+        }
+
+        public override void closeProject(LumosGUIIOContext context)
+        {
+            base.closeProject(context);
+            Log.Info("CloseProject " + nameof(GUIPluginTemplate));
         }
     }
 }
