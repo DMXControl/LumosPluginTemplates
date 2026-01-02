@@ -93,7 +93,8 @@ namespace LumosGUIPluginTemplates.ProjectExplorer
 
         private void CreateBank_Click(object sender, ActionItemMetadata meta, EMouseButtons buttons, bool down)
         {
-            base.AddSubNode(new PENodeTemplate());
+            if (down)
+                base.AddSubNode(new PENodeTemplate());
         }
 
         private List<ActionItemMetadata> menuItems = new List<ActionItemMetadata>();
